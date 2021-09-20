@@ -1,0 +1,8 @@
+﻿@page
+@model WebApplication1.Pages.UserModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<h4>Имя Пользователя: @Model.person.Name, возраст: @Model.person.Age</h4>
+<form method="post">
+    <input type="submit" value="Список пользователей" />
+</form>

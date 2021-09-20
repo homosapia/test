@@ -5,21 +5,22 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WebApplication1.Model;
+using WebApplication1.Pages;
 
 namespace WebApplication1.Pages
 {
-    public class IndexModel : PageModel
+    public class UserModel : PageModel
     {
-        public string Messeng { get; set; }
-
-        public void OnGet()
+        public Person person = new();
+        public void OnGet(string name, int age)
         {
-            Messeng = "Заполните поля";
+            person.Name = name;
+            person.Age = age;
         }
 
         public IActionResult OnPost(string name, int age)
         {
-            string url = Url.Page("User", new Person { Name = name, Age = age });
+            string url = Url.Page("Peges", new Person { Name = name, Age = age });
             return Redirect(url);
         }
     }

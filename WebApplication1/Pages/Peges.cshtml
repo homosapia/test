@@ -1,0 +1,24 @@
+﻿@page "{handler?}"
+@model WebApplication1.Pages.PegesModel
+@using WebApplication1.Model
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<h2>Список пользователей</h2>
+
+<form method="post">
+    <input type="number" name="age" />
+    <input type="submit" asp-page-handler="GreaterThan" value="Старше" />
+    <input type="submit" asp-page-handler="LessThan" value="Младше" />
+    <input type="submit" asp-page-handler="NweUser" value="Добавить" />
+</form>
+
+<table>
+    <tr><td>Name</td><td>Age</td></tr>
+    @foreach (Person person in Model.DisplayedPerson)
+    {
+        <tr>
+            <td>@person.Name</td>
+            <td>@person.Age</td>
+        </tr>
+    }
+</table>
